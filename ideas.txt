@@ -1,0 +1,16 @@
+Game is kind of like masseffect or remember me.
+
+Dialog optional?  Can choose to not talk for most of the game.
+
+Show graphvis tree of your choices.
+Red current path, green previously explored, Black dotted lines not explored.
+
+Allow player to navigate tree to load a game.
+Need a quick way to start over or jump to start of tree.
+
+Allow choices to set a variable.
+Allow graph to depend on choices, code should be simple but tree complex.
+
+Achievements:
+	Walk through the desert
+	Complete tree.	

@@ -1,0 +1,17 @@
+# Use neato -Tpng script.dot -o script.png
+digraph Desert {
+	overlap = scale;
+	"Start" -> "Question1" [label = "Would you like to play the game as a 
+		male or female?"];
+	"Question1" -> "Male" [label = "Male"];
+	"Question1" -> "Female" [label = "Female"];
+	"Male" -> "Walking01";
+	"Female" -> "Walking01";
+	"Walking01" -> "Walking02" [label = "You have been walking for quite a
+		while now."];
+	"Walking02" -> "Walking03" [label = "This is a crappy day."];
+	
+	"Walking03" -> "Walking04" [label = "Man it sure is hot."];
+
+
+}
