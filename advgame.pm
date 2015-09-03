@@ -1,6 +1,9 @@
 package advgame;
 
+use strict;
+use warnings;
 use IO::Prompter;
+use base 'Exporter';
 
 our @EXPORT = qw(
 	set_debug
@@ -12,7 +15,9 @@ our @EXPORT = qw(
 my ($debug);
 
 sub set_debug {
-	my ($debug) = @_;
+	($debug) = @_;
+
+	return $debug;
 }
 
 sub query_debug {
@@ -31,6 +36,8 @@ sub usage {
 	print "\tquit\tQuit the game.\n";
 	print "\tsave FILENAME\tSave the game.\n";
 	print "\tload FILENAME\tLoad a file.\n";
+
+	return 1;
 }
 
 sub get_prompt {

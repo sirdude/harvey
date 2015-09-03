@@ -14,3 +14,8 @@ Allow graph to depend on choices, code should be simple but tree complex.
 Achievements:
 	Walk through the desert
 	Complete tree.	
+
+Look for debugging state machine code...  Functions return values all
+transition to a valid state.
+All states are reachable.
+
