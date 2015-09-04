@@ -23,6 +23,7 @@ $machine->add_state(name => "hospital", sub => \&do_hospital);
 
 $machine->add_state(name => "end", sub => \&do_end);
 
+
 $machine->add_trans(from => "init", to => "get_gender",  exp_val => 1);
 $machine->add_trans(from => "get_gender", to => "walking01",  exp_val => 1);
 $machine->add_trans(from => "walking01", to => "walking02",  exp_val => 1);
@@ -35,7 +36,7 @@ $machine->add_trans(from => "hide", to => "jeep",  exp_val => "hide");
 $machine->add_trans(from => "jeep", to => "end_walk",  exp_val => "decline");
 $machine->add_trans(from => "jeep", to => "ride",  exp_val => "accept");
 $machine->add_trans(from => "ride", to => "hospital",  exp_val => 1);
-# This will change as we go foarward. XXX
+
 $machine->add_trans(from => "hospital", to => "end",  exp_val => 1);
 
 $machine->run();
@@ -81,6 +82,8 @@ sub do_walking01 {
 
 	print "You have been walking for quite awhile now.\n";
 
+	my $ans = advgame::get_prompt("Press enter to continue.\n");
+
 	$rh_args->{"returned_value"} = 1;
 	return $rh_args;
 }
@@ -93,6 +96,7 @@ sub do_walking02 {
 	}
 
 	print "This is a crappy day.\n";
+
 	my $ans = advgame::get_prompt("Press enter to continue.\n");
 
 	$rh_args->{"returned_value"} = 1;
@@ -112,6 +116,8 @@ sub do_walking03 {
 		print "Wow, it sure is hot.\n";
 	}
 
+	my $ans = advgame::get_prompt("Press enter to continue.\n");
+
 	$rh_args->{"returned_value"} = 1;
 	return $rh_args;
 }
@@ -124,6 +130,8 @@ sub do_walking04 {
 	}
 
 	print "This could be a long day.\n";
+
+	my $ans = advgame::get_prompt("Press enter to continue.\n");
 
 	$rh_args->{"returned_value"} = 1;
 	return $rh_args;
@@ -161,10 +169,11 @@ sub do_hide {
 	
 	print "After a few minutes, the jeep pulls up to close to where you " .
 		"are hiding.\n";
-	print "The window rolls down.";
-	print "A man inside the jeep yells at you:  \"Funny thing about the " .
+	print "The window rolls down.\n";
+	print "A older man dressed in a military uniform sits inside the jeep.\n";
+	print "He yells at you:  \"Funny thing about the " .
 		"desert.  You can see for miles.  I saw you jump behind the " .
-		"rocks.\"\n";
+		"rocks.\"\n\n";
 
 	$rh_args->{"returned_value"} = "hide";
 
@@ -183,7 +192,6 @@ sub do_jeep {
 	} else {
 		print "Hello!\n";
 	}
-# XXX Need to do some extra stuff here for non hide
 
 	my $ans = advgame::get_prompt("Do you want a lift? " .
 		"[accept | decline] \n");
@@ -220,7 +228,14 @@ sub do_ride {
 	}
 
 	print "You climb into the jeep!\n";
-	print "You feel sleepy? XXX more needed here.\n";
+	print "The man introduces himself as Sargent Scott.\n";
+	print "As he talks to you, you start to feel depressed.\n";
+	print "First you lost your job and you wound up stranded in the " .
+		"desert only to be rescued by an old guy that wants to " .
+		"lecture you on your life choices.\n";
+	print "As time goes on you stare out the window and fall asleep.\n";
+
+	my $ans = advgame::get_prompt("Press enter to continue.\n");
 	
 	$rh_args->{"returned_value"} = 1;
 	return $rh_args;
@@ -234,6 +249,8 @@ sub do_hospital {
 	}
 
 	print "You wake up briefly, you are confused.\n";
+
+	my $ans = advgame::get_prompt("Press enter to continue.\n");
 	
 	$rh_args->{"returned_value"} = 1;
 	return $rh_args;
