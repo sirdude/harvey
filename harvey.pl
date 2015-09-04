@@ -170,7 +170,8 @@ sub do_hide {
 	print "After a few minutes, the jeep pulls up to close to where you " .
 		"are hiding.\n";
 	print "The window rolls down.\n";
-	print "A older man dressed in a military uniform sits inside the jeep.\n";
+	print "A older man dressed in a military uniform sits inside the " .
+		"jeep.\n";
 	print "He yells at you:  \"Funny thing about the " .
 		"desert.  You can see for miles.  I saw you jump behind the " .
 		"rocks.\"\n\n";
